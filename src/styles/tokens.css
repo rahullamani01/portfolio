@@ -1,0 +1,62 @@
+:root {
+  color-scheme: dark;
+
+  /* Core palette */
+  --bg: #080807;
+  --bg-raised: #0e0e0c;
+  --bg-deep: #050504;
+  --ink: #f2efe8;
+  --ink-soft: #d4cfc5;
+  --ink-muted: #a7a197;
+  --ink-faint: #7d776d;
+  --amber: #e0a05e;
+  --amber-bright: #f0b577;
+  --amber-deep: #c97c35;
+  --amber-wash: rgba(224, 160, 94, 0.12);
+  --amber-glow: rgba(201, 124, 53, 0.22);
+
+  /* Lines and surfaces */
+  --line: rgba(242, 239, 232, 0.11);
+  --line-strong: rgba(242, 239, 232, 0.2);
+  --line-faint: rgba(242, 239, 232, 0.06);
+  --glass: rgba(13, 13, 11, 0.58);
+  --glass-heavy: rgba(15, 15, 13, 0.88);
+  --surface: rgba(242, 239, 232, 0.025);
+
+  /* Type */
+  --sans:
+    'Instrument Sans Variable', 'Instrument Sans', 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
+  --mono:
+    'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'SFMono-Regular',
+    Menlo, monospace;
+
+  --step--1: clamp(0.72rem, 0.69rem + 0.1vw, 0.78rem);
+  --step-0: clamp(0.94rem, 0.9rem + 0.16vw, 1.03rem);
+  --step-1: clamp(1.08rem, 1rem + 0.35vw, 1.28rem);
+  --step-2: clamp(1.35rem, 1.15rem + 0.8vw, 1.85rem);
+  --step-3: clamp(1.8rem, 1.4rem + 1.7vw, 2.9rem);
+  --step-4: clamp(2.5rem, 1.8rem + 3.2vw, 4.8rem);
+  --step-5: clamp(3.2rem, 2rem + 6vw, 7.4rem);
+
+  /* Layout */
+  --max: 1400px;
+  --gutter: clamp(1.25rem, 4.5vw, 4.75rem);
+  --header-height: 78px;
+  --section-space: clamp(5.5rem, 11vw, 10rem);
+  --radius-sm: 10px;
+  --radius: 18px;
+  --radius-lg: 26px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 220ms;
+  --dur: 520ms;
+  --dur-slow: 900ms;
+
+  /* Effects */
+  --shadow-card: 0 24px 80px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 0 1px rgba(224, 160, 94, 0.12),
+    0 20px 70px rgba(201, 124, 53, 0.08);
+}
