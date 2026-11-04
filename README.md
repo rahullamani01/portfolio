@@ -66,10 +66,10 @@ GitHub:
 project URL such as `/portfolio/` and at a custom domain. You do not need to
 change the base path for a repository named `<username>.github.io`.
 
-After the first deploy, replace the relative `og:image` and `twitter:image`
-values in `index.html` with the full URL (for example
-`https://<username>.github.io/<repository>/og-image.png`). Most social
-scrapers require an absolute URL for the preview image.
+The live site is currently at
+[https://rahullamani01.github.io/portfolio/](https://rahullamani01.github.io/portfolio/).
+The social preview and canonical URLs in `index.html` point at that address. If
+you add a custom domain later, update those absolute URLs too.
 
 The build is static. There is no server, database, or environment variable to
 configure.
