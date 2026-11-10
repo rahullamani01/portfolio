@@ -31,14 +31,14 @@ export const projects: Project[] = [
     index: '01',
     name: 'ATLAS',
     tagline:
-      'A simulation-first mobile robot project: geometry, differential-drive motion, occupancy grids, and Dijkstra/A* planning.',
+      'A simulation-first mobile robot: planning, PID path following, LiDAR localization, and recovery when the world stops matching the map.',
     summary:
-      'A 2D robot simulator built from the mathematics up. I implemented the motion model, the world representation, collision checks, and two graph-search planners before writing any controller.',
-    status: 'Active · Phases 0–2 complete',
+      'A 2D robot simulator built from the mathematics up: kinematics, occupancy grids, A* planning, PID tracking, a particle filter over LiDAR, and a supervisor that replans when the world changes.',
+    status: 'Active · Phases 0–6 complete',
     statusKind: 'active',
     tech: ['Python', 'NumPy', 'Matplotlib', 'pytest'],
     contribution:
-      'Sole author: geometry, differential-drive model, occupancy grid, obstacle inflation, Dijkstra/A*, simulator, and test suite.',
+      'Sole author: kinematics, occupancy grid and A*, PID path follower, LiDAR, particle-filter localization, dynamic obstacle detection, recovery supervisor, and the 179-test suite.',
     updated: 'Updated Nov 2026',
     repo: 'https://github.com/rahullamani01/Atlas',
     featured: true,
@@ -47,22 +47,22 @@ export const projects: Project[] = [
       {
         label: 'Problem',
         body:
-          'Plan and simulate a differential-drive robot through a 2D world, with the geometry and failure modes visible instead of hidden behind a robotics library.',
+          'Build a differential-drive robot from the mathematics up — plan a route, follow it with feedback, estimate pose from noisy sensors, and react when the world stops matching the map.',
       },
       {
         label: 'Approach',
         body:
-          'Wheel speeds are integrated into a pose over time. The world is rasterised into an occupancy grid, obstacles are inflated by the robot radius, and both Dijkstra and A* search the grid. A* uses an octile heuristic with 8-connectivity; diagonal moves are blocked when either adjacent cardinal cell is occupied.',
+          'Wheel speeds are integrated into a pose over time. The world is rasterised into an occupancy grid, obstacles are inflated, and A* searches the grid with an octile heuristic and 8-connectivity. A PID path follower tracks the route, a 2D LiDAR supplies range scans, and a particle filter fuses those scans with wheel odometry. A dynamic obstacle map turns map-inconsistent returns into confirmed cells, and the supervisor replans or runs a bounded scan/backup/fail recovery.',
       },
       {
         label: 'What works',
         body:
-          'Phases 0–2 are implemented: geometry utilities, differential-drive kinematics, collision checks, grid construction, Dijkstra, A*, and path reconstruction. Demo scripts print integration error and compare planning cost, expanded cells, and runtime. The README reports a 73-test suite.',
+          'Phases 0–6 are implemented: geometry, differential-drive kinematics, collision checks, grid construction, Dijkstra, A*, PID path following, LiDAR, particle-filter localization, dynamic obstacle detection, replanning, and recovery. The localization run holds 0.085 m position RMS against 11.4 m of raw odometry drift. The recovery demo detects a mid-route block, replans once, and reaches the goal with zero collisions. The README reports a 179-test suite.',
       },
       {
         label: 'Limitations',
         body:
-          'This is a simulation, not a deployed robot. There is no controller following the planned path yet, and no sensing, localisation, or mapping. Phase 3 — trajectory tracking — is the next step.',
+          'This is a 2D simulation, not a deployed robot. Localization assumes a known static map and has a limited capture range, so a kidnapped robot is not recovered; the recovery layer handles blocked routes, not a lost pose. Moving obstacles are treated as static cells, occluded faces stay unknown, and collision checking is discrete. The recovery demo uses ground-truth pose to isolate perception and recovery.',
       },
       {
         label: 'What I learned',
@@ -72,7 +72,7 @@ export const projects: Project[] = [
       {
         label: 'Next',
         body:
-          'Implement trajectory tracking, then add sensing and localisation once the control loop is testable.',
+          'Phase 7 — a reusable evaluation and metrics harness so the phases can be compared across scenarios and seeds.',
       },
     ],
   },

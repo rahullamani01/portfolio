@@ -26,7 +26,7 @@ export const notes: Note[] = [
     paragraphs: [
       'The Phase 2 planner produces a sequence of grid cells. That is a geometric answer: which cells to cross, not how to turn the wheels over time.',
       'A differential drive has a nonholonomic constraint. It can move forward and rotate, but it cannot slide sideways. A route with sharp corners in grid space becomes a set of poses that a controller has to approach, correct, and settle into. The controller also has to absorb integration error, timing error, and the collision margin added during planning.',
-      'The current simulator can integrate wheel speeds and detect collisions. It does not close the loop around a planned path yet. That is Phase 3, and I am keeping the claim separate from the current state.',
+      'The current simulator closes that loop with a PID path follower: the planned route becomes a sequence of heading corrections, and the demo reaches the goal with zero collisions at 0.026 m cross-track RMS versus 0.051 m for P-only control. Localization adds a second problem on top: the controller now has to trust an estimated pose, not the simulator ground truth.',
       'The useful takeaway: planning and control are separate layers with separate failure modes. A* finding a route says nothing about whether the robot can track it.',
     ],
     repo: 'https://github.com/rahullamani01/Atlas',

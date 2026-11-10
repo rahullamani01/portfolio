@@ -170,10 +170,10 @@ function FlowDot({
 function AtlasStructure({ reduced }: { reduced: boolean }) {
   const nodes = [
     { title: '2D world', line1: 'bounds + obstacles', line2: 'world.py' },
-    { title: 'occupancy grid', line1: 'resolution · cells', line2: 'grid.py' },
-    { title: 'inflation', line1: 'robot radius', line2: 'grid.py' },
-    { title: 'Dijkstra / A*', line1: '8-connected · octile', line2: 'search.py' },
-    { title: 'path', line1: 'waypoints + cost', line2: 'Phase 2' },
+    { title: 'grid + A*', line1: 'inflate · 8-connected', line2: 'grid.py · search.py' },
+    { title: 'PID follower', line1: 'carrot · heading', line2: 'path_follower.py' },
+    { title: 'LiDAR + filter', line1: 'odometry · scan match', line2: 'particle_filter.py' },
+    { title: 'detect + recover', line1: 'replan · scan · backup', line2: 'supervisor.py' },
   ]
 
   return (
@@ -181,10 +181,10 @@ function AtlasStructure({ reduced }: { reduced: boolean }) {
       <svg
         viewBox="0 0 640 176"
         role="img"
-        aria-label="ATLAS planning structure: a 2D world becomes an occupancy grid, obstacles are inflated by the robot radius, Dijkstra or A* searches the grid, and a path is returned. There is no controller yet."
+        aria-label="ATLAS navigation structure: a 2D world becomes an occupancy grid, A* plans a route, a PID follower tracks it, LiDAR and a particle filter estimate pose, and a supervisor detects new obstacles, replans, and recovers when the route is blocked."
       >
         <text x="0" y="12" fill="var(--ink-faint)" fontFamily={mono} fontSize="8" letterSpacing="1">
-          PLANNING PIPELINE
+          NAVIGATION PIPELINE
         </text>
 
         {nodes.map((node, index) => {
@@ -240,17 +240,17 @@ function AtlasStructure({ reduced }: { reduced: boolean }) {
         })}
 
         <text x="0" y="126" fill="var(--ink-faint)" fontFamily={mono} fontSize="7.5">
-          phase 02 / planning · 73 tests reported in the README
+          phase 00–06 / navigation · 179 tests reported in the README
         </text>
         <text x="0" y="145" fill="var(--ink-faint)" fontFamily={mono} fontSize="7.5">
-          no controller yet · trajectory tracking is phase 3
+          closed loop on estimated pose · replans around new obstacles
         </text>
         <text x="640" y="145" fill="var(--ink-faint)" fontFamily={mono} fontSize="7.5" textAnchor="end">
           simulation, not a deployed robot
         </text>
       </svg>
       <figcaption className="mini-diagram__caption">
-        Architecture of the implemented Phase 2 pipeline. Motion is illustrative, not live telemetry.
+        Architecture of the implemented Phase 6 pipeline. Motion is illustrative, not live telemetry.
       </figcaption>
     </figure>
   )
