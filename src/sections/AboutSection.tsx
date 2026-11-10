@@ -56,7 +56,7 @@ export function AboutSection() {
                 </div>
                 <div className="fact">
                   <dt>Building</dt>
-                  <dd>ATLAS Phase 3 — trajectory tracking</dd>
+                  <dd>ATLAS — Phases 0–6 complete</dd>
                 </div>
                 <div className="fact">
                   <dt>Open to</dt>
