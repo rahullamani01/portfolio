@@ -29,7 +29,7 @@ interface Particle {
   speed: number
   glyph: string
   alpha: number
-  tone: 'warm' | 'amber'
+  tone: 'neutral' | 'accent'
 }
 
 function makeParticles(width: number, height: number, reduced: boolean) {
@@ -46,7 +46,7 @@ function makeParticles(width: number, height: number, reduced: boolean) {
       speed: 7 + Math.random() * 13,
       glyph: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
       alpha: 0.07 + Math.random() * 0.12,
-      tone: Math.random() > 0.72 ? 'amber' : 'warm',
+      tone: Math.random() > 0.72 ? 'accent' : 'neutral',
     })
   }
 
@@ -77,9 +77,9 @@ export function GlyphField() {
 
       for (const particle of particles) {
         context.fillStyle =
-          particle.tone === 'amber'
-            ? `rgba(224, 160, 94, ${particle.alpha})`
-            : `rgba(242, 239, 232, ${particle.alpha * 0.75})`
+          particle.tone === 'accent'
+            ? `rgba(181, 220, 168, ${particle.alpha})`
+            : `rgba(238, 244, 230, ${particle.alpha * 0.75})`
         context.fillText(particle.glyph, particle.x, particle.y)
       }
     }

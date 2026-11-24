@@ -47,11 +47,11 @@ export function AtlasVisual() {
     >
       <defs>
         <pattern id="atlas-grid" width="1" height="1" patternUnits="userSpaceOnUse">
-          <path d="M 1 0 L 0 0 0 1" fill="none" stroke="rgba(242,239,232,0.08)" strokeWidth="0.012" />
+          <path d="M 1 0 L 0 0 0 1" fill="none" stroke="rgba(238,244,230,0.08)" strokeWidth="0.012" />
         </pattern>
       </defs>
 
-      <rect width={COLS} height={ROWS} fill="#0b0b09" />
+      <rect width={COLS} height={ROWS} fill="#0a110c" />
       <rect width={COLS} height={ROWS} fill="url(#atlas-grid)" />
 
       {WALLS.map(([row, col]) => (
@@ -62,8 +62,8 @@ export function AtlasVisual() {
           width={0.92}
           height={0.92}
           rx={0.08}
-          fill="#322d27"
-          stroke="rgba(242,239,232,0.035)"
+          fill="#26331f"
+          stroke="rgba(238,244,230,0.035)"
           strokeWidth="0.015"
         />
       ))}
@@ -73,7 +73,7 @@ export function AtlasVisual() {
           <path
             d={pathData}
             fill="none"
-            stroke="rgba(224,160,94,0.18)"
+            stroke="rgba(181,220,168,0.18)"
             strokeWidth="0.34"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -81,7 +81,7 @@ export function AtlasVisual() {
           <path
             d={pathData}
             fill="none"
-            stroke="var(--amber)"
+            stroke="var(--accent)"
             strokeWidth="0.12"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -93,7 +93,7 @@ export function AtlasVisual() {
         cx={START.col + 0.5}
         cy={START.row + 0.5}
         r="0.27"
-        fill="#0b0b09"
+        fill="#0a110c"
         stroke="var(--ink-soft)"
         strokeWidth="0.05"
       />
@@ -101,14 +101,14 @@ export function AtlasVisual() {
         cx={GOAL.col + 0.5}
         cy={GOAL.row + 0.5}
         r="0.23"
-        fill="var(--amber)"
+        fill="var(--accent)"
       />
       <circle
         cx={GOAL.col + 0.5}
         cy={GOAL.row + 0.5}
         r="0.42"
         fill="none"
-        stroke="var(--amber)"
+        stroke="var(--accent)"
         strokeWidth="0.025"
         opacity="0.45"
       />
@@ -156,7 +156,7 @@ function FlowDot({
   if (reduced) return null
 
   return (
-    <circle r={r} fill="var(--amber)" opacity="0.9">
+    <circle r={r} fill="var(--accent)" opacity="0.9">
       <animateMotion
         dur={`${duration}s`}
         begin={`${delay}s`}
@@ -201,10 +201,10 @@ function AtlasStructure({ reduced }: { reduced: boolean }) {
                 width="112"
                 height="66"
                 rx="5"
-                fill={index === 3 ? 'rgba(224,160,94,0.06)' : 'rgba(242,239,232,0.025)'}
-                stroke={index === 3 ? 'rgba(224,160,94,0.28)' : 'rgba(242,239,232,0.12)'}
+                fill={index === 3 ? 'rgba(181,220,168,0.06)' : 'rgba(238,244,230,0.025)'}
+                stroke={index === 3 ? 'rgba(181,220,168,0.28)' : 'rgba(238,244,230,0.12)'}
               />
-              <text x={x + 11} y="51" fill={index === 3 ? 'var(--amber)' : 'var(--ink-soft)'} fontFamily={mono} fontSize="8">
+              <text x={x + 11} y="51" fill={index === 3 ? 'var(--accent)' : 'var(--ink-soft)'} fontFamily={mono} fontSize="8">
                 {node.title}
               </text>
               <text x={x + 11} y="66" fill="var(--ink-faint)" fontFamily={mono} fontSize="7">
@@ -287,8 +287,8 @@ export function MiniDiagram({
                 width="26"
                 height="30"
                 rx="3"
-                fill="rgba(242,239,232,0.04)"
-                stroke="rgba(242,239,232,0.15)"
+                fill="rgba(238,244,230,0.04)"
+                stroke="rgba(238,244,230,0.15)"
               />
               <text
                 x={index * 34 + 13}
@@ -324,8 +324,8 @@ export function MiniDiagram({
               width="120"
               height="42"
               rx="5"
-              fill="rgba(224,160,94,0.06)"
-              stroke="rgba(224,160,94,0.28)"
+              fill="rgba(181,220,168,0.06)"
+              stroke="rgba(181,220,168,0.28)"
             />
             <text x="318" y="40" fill="var(--ink-muted)" fontFamily={mono} fontSize="8" textAnchor="middle">
               EMBEDDING +
@@ -355,7 +355,7 @@ export function MiniDiagram({
               width={bar * 3}
               height="8"
               rx="2"
-              fill={index === 3 ? 'var(--amber)' : 'rgba(242,239,232,0.15)'}
+              fill={index === 3 ? 'var(--accent)' : 'rgba(238,244,230,0.15)'}
               className={index === 3 ? 'live-bar' : undefined}
             />
           ))}
@@ -442,13 +442,13 @@ export function MiniDiagram({
                 width="44"
                 height="54"
                 rx="3"
-                fill={index === 2 ? 'rgba(224,160,94,0.08)' : 'rgba(242,239,232,0.025)'}
-                stroke={index === 2 ? 'rgba(224,160,94,0.32)' : 'rgba(242,239,232,0.11)'}
+                fill={index === 2 ? 'rgba(181,220,168,0.08)' : 'rgba(238,244,230,0.025)'}
+                stroke={index === 2 ? 'rgba(181,220,168,0.32)' : 'rgba(238,244,230,0.11)'}
               />
               <text
                 x={258 + index * 54}
                 y="60"
-                fill={index === 2 ? 'var(--amber)' : 'var(--ink-faint)'}
+                fill={index === 2 ? 'var(--accent)' : 'var(--ink-faint)'}
                 fontFamily={mono}
                 fontSize="8"
                 textAnchor="middle"
@@ -476,8 +476,8 @@ export function MiniDiagram({
               width="116"
               height="62"
               rx="5"
-              fill="rgba(242,239,232,0.025)"
-              stroke="rgba(242,239,232,0.12)"
+              fill="rgba(238,244,230,0.025)"
+              stroke="rgba(238,244,230,0.12)"
             />
             <text x="560" y="48" fill="var(--ink-muted)" fontFamily={mono} fontSize="8" textAnchor="middle">
               CNN + BiLSTM
@@ -493,7 +493,7 @@ export function MiniDiagram({
           <text x="0" y="142" fill="var(--ink-faint)" fontFamily={mono} fontSize="8">
             per-window scores → EMA smoothing → alert threshold
           </text>
-          <path d="M330 134H640" stroke="rgba(242,239,232,0.08)" strokeWidth="1" />
+          <path d="M330 134H640" stroke="rgba(238,244,230,0.08)" strokeWidth="1" />
         </svg>
         <figcaption className="mini-diagram__caption">
           Conceptual signal path. The real pipeline lives in the repository; no accuracy
@@ -526,7 +526,7 @@ export function MiniDiagram({
           ONE FRAME
         </text>
 
-        <rect x="0" y="40" width="96" height="38" rx="3" fill="rgba(224,160,94,0.1)" stroke="rgba(224,160,94,0.4)" />
+        <rect x="0" y="40" width="96" height="38" rx="3" fill="rgba(181,220,168,0.1)" stroke="rgba(181,220,168,0.4)" />
         <text x="48" y="56" fill="var(--ink-soft)" fontFamily={mono} fontSize="8" textAnchor="middle">
           json_len
         </text>
@@ -534,7 +534,7 @@ export function MiniDiagram({
           4 bytes BE
         </text>
 
-        <rect x="100" y="40" width="96" height="38" rx="3" fill="rgba(224,160,94,0.1)" stroke="rgba(224,160,94,0.4)" />
+        <rect x="100" y="40" width="96" height="38" rx="3" fill="rgba(181,220,168,0.1)" stroke="rgba(181,220,168,0.4)" />
         <text x="148" y="56" fill="var(--ink-soft)" fontFamily={mono} fontSize="8" textAnchor="middle">
           bin_len
         </text>
@@ -542,7 +542,7 @@ export function MiniDiagram({
           4 bytes BE
         </text>
 
-        <rect x="200" y="40" width="250" height="38" rx="3" fill="rgba(242,239,232,0.035)" stroke="rgba(242,239,232,0.14)" />
+        <rect x="200" y="40" width="250" height="38" rx="3" fill="rgba(238,244,230,0.035)" stroke="rgba(238,244,230,0.14)" />
         <text x="325" y="56" fill="var(--ink-soft)" fontFamily={mono} fontSize="8" textAnchor="middle">
           JSON payload
         </text>
@@ -550,7 +550,7 @@ export function MiniDiagram({
           type, user, text, metadata
         </text>
 
-        <rect x="454" y="40" width="186" height="38" rx="3" fill="rgba(242,239,232,0.02)" stroke="rgba(242,239,232,0.12)" strokeDasharray="3 3" />
+        <rect x="454" y="40" width="186" height="38" rx="3" fill="rgba(238,244,230,0.02)" stroke="rgba(238,244,230,0.12)" strokeDasharray="3 3" />
         <text x="547" y="56" fill="var(--ink-soft)" fontFamily={mono} fontSize="8" textAnchor="middle">
           raw binary
         </text>
@@ -558,7 +558,7 @@ export function MiniDiagram({
           file chunk / voice note
         </text>
 
-        <path d="M0 96H640" stroke="rgba(242,239,232,0.08)" strokeWidth="1" />
+        <path d="M0 96H640" stroke="rgba(238,244,230,0.08)" strokeWidth="1" />
         <text x="0" y="116" fill="var(--ink-faint)" fontFamily={mono} fontSize="8">
           receiver: read 8 bytes → read json_len → read bin_len
         </text>
