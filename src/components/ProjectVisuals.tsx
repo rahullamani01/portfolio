@@ -240,7 +240,7 @@ function AtlasStructure({ reduced }: { reduced: boolean }) {
         })}
 
         <text x="0" y="126" fill="var(--ink-faint)" fontFamily={mono} fontSize="7.5">
-          phase 00–06 / navigation · 179 tests reported in the README
+          navigation foundations / planning, sensing and control
         </text>
         <text x="0" y="145" fill="var(--ink-faint)" fontFamily={mono} fontSize="7.5">
           closed loop on estimated pose · replans around new obstacles
@@ -250,7 +250,7 @@ function AtlasStructure({ reduced }: { reduced: boolean }) {
         </text>
       </svg>
       <figcaption className="mini-diagram__caption">
-        Architecture of the implemented Phase 6 pipeline. Motion is illustrative, not live telemetry.
+        Navigation foundations. Later phases add mapping, loop closure and exploration. Motion is illustrative.
       </figcaption>
     </figure>
   )

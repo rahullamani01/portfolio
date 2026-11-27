@@ -31,15 +31,15 @@ export const projects: Project[] = [
     index: '01',
     name: 'ATLAS',
     tagline:
-      'A simulation-first mobile robot: planning, PID path following, LiDAR localization, and recovery when the world stops matching the map.',
+      'A simulated mobile robot that plans routes, repairs its map, and explores unknown space. The latest experiments ask how little LiDAR data it can navigate with.',
     summary:
-      'A 2D robot simulator built from the mathematics up: kinematics, occupancy grids, A* planning, PID tracking, a particle filter over LiDAR, and a supervisor that replans when the world changes.',
-    status: 'Active · Phases 0–6 complete',
+      'In this 2D Python simulator, a differential-drive robot steers from its estimated pose. It uses LiDAR to update its occupancy map, corrects its trajectory when it revisits a place, and chooses where to explore next.',
+    status: 'Active · Phases 0–17 complete',
     statusKind: 'active',
     tech: ['Python', 'NumPy', 'Matplotlib', 'pytest'],
     contribution:
-      'Sole author: kinematics, occupancy grid and A*, PID path follower, LiDAR, particle-filter localization, dynamic obstacle detection, recovery supervisor, and the 179-test suite.',
-    updated: 'Updated Nov 2026',
+      'Built the simulator and navigation stack, then compared localization and arrival accuracy across repeated drives with different wheel errors and LiDAR return budgets.',
+    updated: '28 Nov 2026',
     repo: 'https://github.com/rahullamani01/Atlas',
     featured: true,
     diagram: 'atlas',
@@ -57,12 +57,12 @@ export const projects: Project[] = [
       {
         label: 'What works',
         body:
-          'Phases 0–6 are implemented: geometry, differential-drive kinematics, collision checks, grid construction, Dijkstra, A*, PID path following, LiDAR, particle-filter localization, dynamic obstacle detection, replanning, and recovery. The localization run holds 0.085 m position RMS against 11.4 m of raw odometry drift. The recovery demo detects a mid-route block, replans once, and reaches the goal with zero collisions. The README reports a 179-test suite.',
+          'When the simulated robot was displaced, it reacquired its pose in 2.35 seconds and finished without a collision. Later scenarios demonstrated map repair, online pose-graph correction, and exploration from an empty map. Across three exploration seeds, it observed 96.2% of truly free space on average.',
       },
       {
         label: 'Limitations',
         body:
-          'This is a 2D simulation, not a deployed robot. Localization assumes a known static map and has a limited capture range, so a kidnapped robot is not recovered; the recovery layer handles blocked routes, not a lost pose. Moving obstacles are treated as static cells, occluded faces stay unknown, and collision checking is discrete. The recovery demo uses ground-truth pose to isolate perception and recovery.',
+          'These results come from simulated routes. In the Phase 15 study, all five drives reached the goal with eight LiDAR returns per filter update; all five collided with two. Choosing the two most widely separated returns in Phase 16 did not prevent those collisions.',
       },
       {
         label: 'What I learned',
@@ -70,9 +70,9 @@ export const projects: Project[] = [
           'A path and a controller are different problems. A* can return a geometrically valid route that a differential-drive robot still cannot track without a control layer.',
       },
       {
-        label: 'Next',
+        label: 'Latest experiment · Phase 17',
         body:
-          'Phase 7 — a reusable evaluation and metrics harness so the phases can be compared across scenarios and seeds.',
+          'Giving the two widely separated returns more weight lowered mean position RMS error from 0.925 m to 0.128 m. Four of five drives still collided. The fifth reported arrival, but its true position was 0.218 m from the goal, outside the controller’s 0.10 m tolerance.',
       },
     ],
   },

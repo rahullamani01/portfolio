@@ -56,7 +56,7 @@ export function AboutSection() {
                 </div>
                 <div className="fact">
                   <dt>Building</dt>
-                  <dd>ATLAS — Phases 0–6 complete</dd>
+                  <dd>ATLAS — localization with sparse LiDAR</dd>
                 </div>
                 <div className="fact">
                   <dt>Open to</dt>

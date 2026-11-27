@@ -92,11 +92,7 @@ function ProjectFacts({ project }: { project: Project }) {
       <dt>Status</dt>
       <dd>{project.status}</dd>
       <dt>Tests</dt>
-      <dd>
-        {project.id === 'atlas'
-          ? '179-test suite reported in the README'
-          : 'Test suite in the repository'}
-      </dd>
+      <dd>Test suite in the repository</dd>
       <dt>Updated</dt>
       <dd>{project.updated}</dd>
     </dl>
